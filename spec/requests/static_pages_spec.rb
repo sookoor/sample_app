@@ -11,6 +11,12 @@ describe "Static pages" do
       page.should have_selector('h1', :text => 'Sample App')
     end
 
+    it "should have the content 'Sample App'" do
+      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+      visit '/static_pages/home'
+      expect(page).to have_content('Sample App')
+    end
+
     it "should have the title 'Home'" do
       visit '/static_pages/home'
       page.should have_selector('title', :text => "#{base_title} | Home")
@@ -22,6 +28,11 @@ describe "Static pages" do
     it "should have the h1 'Help'" do
       visit '/static_pages/help'
       page.should have_selector('h1', :text => 'Help')
+    end
+    
+    it "should have the content 'Help'" do
+      visit '/static_pages/help'
+      expect(page).to have_content('Help')
     end
 
     it "should have the title 'Help'" do
@@ -35,6 +46,11 @@ describe "Static pages" do
     it "should have the h1 'About Us'" do
       visit '/static_pages/about'
       page.should have_selector('h1', :text => 'About Us')
+    end
+
+    it "should have the content 'About Us'" do
+      visit '/static_pages/about'
+      expect(page).to have_content('About Us')
     end
 
     it "should have the title 'About Us'" do
